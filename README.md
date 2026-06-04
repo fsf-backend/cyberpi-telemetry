@@ -1,6 +1,6 @@
 # CyberPi Telemetry Monitor
 
-![Logo Description](cyberpi.png)
+![CyberPi](cyberpi.png)
 
 Real-time telemetry system for CyberPi, designed to visualize system metrics from a remote host through HTTP polling and dynamic LED feedback.
 
