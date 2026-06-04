@@ -37,18 +37,14 @@ GET http://<SERVER_IP>:8080/status
 
 Example response:
 
->{
->
->  "host": "server-name",
->
->  "cpu": 35,
->
->  "ram": 62,
->
->  "temp": 58
->
->}
-
+```bash
+{
+"host": "server-name",
+"cpu": 35,
+"ram": 62,
+"temp": 58
+}
+```
 ---
 
 ## 💡 LED Behavior Model
@@ -84,14 +80,12 @@ This separation allows both stability and motion perception without visual noise
 
 The screen shows a compact telemetry block:
 
+```bash
 CPU       14%
-
 MEM       55%
-
 TEMP      58C
-
 BATT     100%
-
+```
 
 Updated every polling cycle.
 
@@ -121,13 +115,12 @@ On startup:
 
 Edit directly in the main script:
 
+```bash
 WIFI_SSID = ""
-
 WIFI_PASS = ""
-
 SERVER_IP = ""
-
 SERVER_PORT = 8080
+```
 
 ---
 
