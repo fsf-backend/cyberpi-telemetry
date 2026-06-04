@@ -6,7 +6,7 @@ Real-time telemetry system for CyberPi, designed to visualize system metrics fro
 
 ---
 
-## Overview
+## 🔎 Overview
 
 The device connects to Wi-Fi, periodically queries a `/status` endpoint, and renders live system metrics:
 
@@ -19,17 +19,17 @@ In addition to the display output, the LED array provides a reactive visual laye
 
 ---
 
-## System Architecture
+## 📐 System Architecture
 
 The runtime flow is intentionally linear and predictable:
 
 Wi-Fi connection → HTTP polling → JSON parsing → delta computation → display rendering → LED update
 
-No external dependencies beyond `cyberpi` and `urequests`.
+No external dependencies beyond `python3-psutils`, `cyberpi` and `urequests`.
 
 ---
 
-## Expected API
+## 📡 Expected API
 
 The remote server must expose:
 
@@ -37,16 +37,21 @@ GET http://<SERVER_IP>:8080/status
 
 Example response:
 
-{
-  "host": "server-name",
-  "cpu": 35,
-  "ram": 62,
-  "temp": 58
-}
+>{
+>
+>  "host": "server-name",
+>
+>  "cpu": 35,
+>
+>  "ram": 62,
+>
+>  "temp": 58
+>
+>}
 
 ---
 
-## LED Behavior Model
+## 💡 LED Behavior Model
 
 The LED system is split into two semantic layers:
 
@@ -67,29 +72,32 @@ Represents change intensity between updates:
 
 ### LED mapping
 
-- LED 1–2 → CPU
-- LED 3–4 → RAM
+- LED 1/2 → CPU
+- LED 3/4 → RAM
 - LED 5 → Temperature
 
 This separation allows both stability and motion perception without visual noise.
 
 ---
 
-## Display Output
+## 📺 Display Output
 
 The screen shows a compact telemetry block:
 
-host
-CPU   xxx%
-MEM   xxx%
-TEMP  xxxC
-BATT  xxx%
+CPU       14%
+
+MEM       55%
+
+TEMP      58C
+
+BATT     100%
+
 
 Updated every polling cycle.
 
 ---
 
-## Offline Mode
+## 🚫 Offline Mode
 
 When the server is unreachable:
 
@@ -99,7 +107,7 @@ When the server is unreachable:
 
 ---
 
-## Boot Sequence
+## 🚀 Boot Sequence
 
 On startup:
 
@@ -109,23 +117,24 @@ On startup:
 
 ---
 
-## Configuration
+## ⚙ Configuration
 
 Edit directly in the main script:
 
 WIFI_SSID = ""
+
 WIFI_PASS = ""
 
-SERVER_IP = "192.168.15.115"
+SERVER_IP = ""
+
 SERVER_PORT = 8080
 
 ---
 
-## Requirements
+## 🚨 Requirements
 
-- Makeblock CyberPi
-- Firmware supporting `cyberpi` and `urequests`
-- HTTP server exposing `/status`
+- MakeBlock CyberPi (firmware supporting `cyberpi` and `urequests`)
+- `python3-psutils` (HTTP server exposing `/status`)
 - Stable Wi-Fi connection
 
 ---
