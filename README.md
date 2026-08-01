@@ -47,6 +47,8 @@ Example response:
 ```
 ---
 
+![CyberPi](20260801_150620.jpg)
+
 ## 💡 LED Behavior Model
 
 The LED system is split into two semantic layers:
